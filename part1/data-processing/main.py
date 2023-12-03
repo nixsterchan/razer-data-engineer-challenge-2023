@@ -1,13 +1,8 @@
 import argparse
 import time
-import os
-import urllib3
 import pandas as pd
-import shutil
-import boto3
 import data_io_handler_v2
-from io import BytesIO
-import zipfile
+
 
 DTYPE_MAPPING = {
     'tconst': 'str',
