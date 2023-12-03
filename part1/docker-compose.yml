@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  dataprocesser:
+    build: 
+      context: ./data-processing
+      args:
+        local_input_mode: "local"
+        local_input_file_path: "./data/input/title.basics.tsv.gz"
+        local_input_file_format: "tsv"
+        local_output_mode: "local"
+        local_output_file_path: "./data/output/sample-cleaned-data.csv"
+        local_output_file_format: "csv"
+    volumes:
+      - ./data/input:/usr/local/app/data/input
+      - ./data/output:/usr/local/app/data/output
+    env_file:
+      - .env
+
+  # localstack:
+  #   image: localstack:3.0.2
