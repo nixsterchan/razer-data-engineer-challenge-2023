@@ -37,15 +37,13 @@ def main():
 
     args = parser.parse_args()
 
-    # Now you can access the values using args.input_mode, args.input_file_path, etc.
-    print("Input Mode:", args.input_mode)
-    print("Input File Path:", args.input_file_path)
-    print("Input File Format:", args.input_file_format)
-    print("Output Mode:", args.output_mode)
-    print("Output File Path:", args.output_file_path)
-    print("Output File Format:", args.output_file_format)
-
-    
+    # In case debugging is needed
+    # print("Input Mode:", args.input_mode)
+    # print("Input File Path:", args.input_file_path)
+    # print("Input File Format:", args.input_file_format)
+    # print("Output Mode:", args.output_mode)
+    # print("Output File Path:", args.output_file_path)
+    # print("Output File Format:", args.output_file_format)
 
     # # Read data from different sources
     df = data_io_handler_v2.read_data(args.input_mode, args.input_file_path, args.input_file_format)
