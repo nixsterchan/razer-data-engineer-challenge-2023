@@ -1,4 +1,4 @@
-# Razer Data Engineer Technical Assignment: Part 2
+# Razer Data Engineer Technical Assignment: Part 2 Data Architecture Design
 
 ## Overview
 This project aims to create a data processing pipeline that utilizes the docker image created from before. The pipeline will leverage AWS services such as S3, SQS, Lambda, Fargate, Kinesis and Redshift.
