@@ -1,7 +1,7 @@
 # Razer Data Engineer Technical Assignment: Part 1 Data Processing Program
 
 ## Overview
-This project aims to create a docker image of a command program built using python. It aims to clean the data (using the movies dataset as a reference).
+This project aims to create a docker image of a command line program that takes in arguments supplied by the user, and does a build using python. It aims to clean the data where cleaning procedures are modelled after the movies dataset.
 
 ## Prerequisites
 - Docker
@@ -33,6 +33,15 @@ You can find this varibles in the template.env file. As this is just a template,
 - AWS_REGION_NAME   ->  Set according to whichever AWS profile you want to upload data to.
 
 ## Assumption made for data cleaning
-- Movies dataset schema was used (https://datasets.imdbws.com/title.basics.tsv.gz)
-- Enforce input type
+- Movies dataset schema was used as reference for the cleaning process (https://datasets.imdbws.com/title.basics.tsv.gz)
+- Schema:
+    - 'tconst': 'str',
+    - 'titleType': 'str',
+    - 'primaryTitle': 'str',
+    - 'originalTitle': 'str',
+    - 'isAdult': 'bool',
+    - 'startYear': 'int',
+    - 'endYear': 'int',
+    - 'runtimeMinutes': 'int',
+    - 'genres': 'str'
 
