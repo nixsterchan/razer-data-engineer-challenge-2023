@@ -11,8 +11,9 @@ This project aims to create a docker image of a command program built using pyth
 1. Clone down this repository into a comfortable spot.
 2. Change directory into the project repository.
 3. Update any arguments within the docker-compose.yml file as needed.
-4. Run ```docker-compose up --build```
-5. Observe the results in the terminal.
+4. Download the file from the link (https://datasets.imdbws.com/title.basics.tsv.gz) and place it in ./data/input folder.
+5. Run ```docker-compose up --build```
+6. Observe the results in the terminal.
 
 
 ## Customization of variables in docker compose
