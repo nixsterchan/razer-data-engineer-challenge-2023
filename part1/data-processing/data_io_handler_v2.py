@@ -170,16 +170,9 @@ def write_data_to_s3(output_path, output_format, output_data):
     """
     # Extract bucket name and key from the S3 path
     bucket_name, object_key = output_path.split('//')[1].split('/', 1)
-    
-    # Create a session using your AWS credentials
-    session = boto3.Session(
-        aws_access_key_id=os.getenv('AWS_ACCESS_KEY'),
-        aws_secret_access_key=os.getenv('AWS_SECRET_KEY'),
-        region_name = os.getenv('AWS_REGION_NAME', 'ap-southeast-1')
-    )
-    
-    # Create an S3 client using the session
-    s3 = session.client('s3')
+
+    s3 = boto3.resource('s3', aws_access_key_id=os.getenv('AWS_ACCESS_KEY'), aws_secret_access_key=os.getenv('AWS_SECRET_KEY'), region_name=os.getenv('AWS_REGION_NAME', 'ap-southeast-1'))
+    s3object= s3.Object(bucket_name, object_key)
 
     # Write data to S3
     with io.BytesIO() as output_buffer:
@@ -194,4 +187,4 @@ def write_data_to_s3(output_path, output_format, output_data):
             print(f'Unsupported output format was supplied: {output_format}\nProceeding to use default csv.')
             output_data.to_csv(output_buffer, header=True, index=False)
         # Upload the data to S3
-        s3.upload_fileobj(output_buffer, bucket_name, object_key)
+        s3object.put(Body=output_buffer.getvalue())
